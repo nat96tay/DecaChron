@@ -1,0 +1,124 @@
+/* General styling */
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Syncopate', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Text */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+h4 {
+    font-size: 0.8em;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+/* Logo */
+img.decanat-logo {
+    max-height: 90px;
+    padding: 10px;
+    padding-top: 35px;
+}
+
+/* Time bar */
+#decimal-time-bar {
+    width: 90%;
+    height: 60px;
+    background-color: black;
+    border: 2px solid white;
+    position: relative;
+    margin: 20px auto;
+    overflow: hidden;
+    padding: 4px
+}
+
+.deck-block {
+    height: 100%; /* Full height of the bar */
+    width: 1%; /* Deck blocks take up 1% of the progress bar */
+    background-color: white; /* Color for filled deck blocks */
+}
+
+/* Cells */
+#progress-bar {
+    display: flex; /* Use flexbox to align blocks horizontally */
+    height: 100%;
+    width: 100%; /* Full width of the bar */
+    background-color: black; /* Background color for empty area */
+    position: relative;
+    margin: 0 auto; /* Ensure it's centered */
+    padding: 0;
+    gap: 3px;
+}
+
+.hecto-block {
+    height: 100%; /* Full height of the bar */
+    width: 10%; /* Each hecto block takes up 10% of the progress bar */
+    background-color: white; /* Default color for filled blocks */
+    position: relative; /* Allow positioning of the dividers inside each block */
+}
+
+/* New time digital clock */
+#decimal-time {
+    margin-top: 35px;
+    margin-bottom: 30px;
+    padding: 10px; /* Reduce inner spacing */
+    border: 2px solid white; /* Thinner border for a more subtle look */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    text-align: center; /* Ensure proper text alignment */
+    font-size: 1.5em; /* Reduce font size */
+    color: black; /* Ensure the text is visible against the background */
+    width: 150px; /* Decrease width */
+    height: 50px; /* Decrease height */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    background-color: white; /* Optional: Add a black background for contrast */
+    letter-spacing: 1px;
+}
+
+/* Old time clock */
+#old-time-container {
+    margin-top: 35px;
+    margin-bottom: 70px;
+    padding: 10px; /* Reduce inner spacing */
+    border: 2px solid white; /* Thinner border for a more subtle look */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    text-align: center; /* Ensure proper text alignment */
+    font-family: "Courier New", Courier, monospace; /* Digital clock style */
+    font-size: 1.5em; /* Reduce font size */
+    color: white; /* Ensure the text is visible against the background */
+    width: 150px; /* Decrease width */
+    height: 50px; /* Decrease height */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    background-color: black; /* Optional: Add a black background for contrast */
+}
+
+/* Dividing line */
+#divider {
+    width: 90%;
+    height: 2px;
+    background-color: white;
+    margin: 20px auto;
+    margin-bottom: 60px;
+}

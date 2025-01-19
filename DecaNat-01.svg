@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 646.59">
+  <!-- Generator: Adobe Illustrator 29.2.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 116)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+
+      .st1 {
+        fill: url(#linear-gradient1);
+      }
+
+      .st2 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="122.98" y1="600.08" x2="676.78" y2="46.27" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".52" stop-color="#000"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="123.83" y1="600.08" x2="677.63" y2="46.27" gradientUnits="userSpaceOnUse">
+      <stop offset=".25" stop-color="#fff"/>
+      <stop offset=".27" stop-color="#fafafa"/>
+      <stop offset=".29" stop-color="#eee"/>
+      <stop offset=".31" stop-color="#d9d9d9"/>
+      <stop offset=".34" stop-color="#bcbcbc"/>
+      <stop offset=".36" stop-color="#969696"/>
+      <stop offset=".38" stop-color="#696969"/>
+      <stop offset=".4" stop-color="#333"/>
+      <stop offset=".42" stop-color="#000"/>
+      <stop offset=".58" stop-color="#000"/>
+      <stop offset=".6" stop-color="#333"/>
+      <stop offset=".62" stop-color="#696969"/>
+      <stop offset=".64" stop-color="#969696"/>
+      <stop offset=".66" stop-color="#bcbcbc"/>
+      <stop offset=".69" stop-color="#d9d9d9"/>
+      <stop offset=".71" stop-color="#eee"/>
+      <stop offset=".73" stop-color="#fafafa"/>
+      <stop offset=".75" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <path class="st2" d="M189.18,646.59l436.23-444.24L630.51,0h-20.16L173.65,446.12l-4.16,200.47h19.69Z"/>
+  <path class="st1" d="M190.02,646.59l436.23-444.24L631.36,0h-20.16L174.49,446.12l-4.16,200.47h19.69Z"/>
+  <path class="st0" d="M610.82,646.59L174.59,202.35v444.24H0V0h189.65l436.71,446.12V0h173.65v646.59h-189.18Z"/>
+</svg>
