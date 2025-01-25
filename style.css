@@ -3,9 +3,10 @@ body {
     background-color: black;
     color: white;
     font-family: 'Syncopate', sans-serif;
-    text-align: center;
-    margin: 0;
     padding: 20px;
+    text-align: center;
+    align-items: center;
+    cursor: crosshair;
 }
 
 /* Text */
@@ -15,8 +16,8 @@ h1 {
     letter-spacing: 1px;
 }
 h2 {
-    font-size: 2em;
-    margin-bottom: 30px;
+    font-size: 2.5em;
+    margin-bottom: 20px;
     letter-spacing: 1px;
 }
 h3 {
@@ -28,6 +29,8 @@ h4 {
     font-size: 0.8em;
     margin: 10px 0;
     letter-spacing: 1px;
+    line-height: 1.8;
+    padding: 0 50px;
 }
 
 /* Logo */
@@ -41,7 +44,7 @@ img.decanat-logo {
 #decimal-time-bar {
     width: 90%;
     height: 60px;
-    background-color: black;
+    background-color: transparent;
     border: 2px solid white;
     position: relative;
     margin: 20px auto;
@@ -49,22 +52,22 @@ img.decanat-logo {
     padding: 4px
 }
 
-.deck-block {
-    height: 100%; /* Full height of the bar */
-    width: 1%; /* Deck blocks take up 1% of the progress bar */
-    background-color: white; /* Color for filled deck blocks */
-}
-
 /* Cells */
 #progress-bar {
     display: flex; /* Use flexbox to align blocks horizontally */
     height: 100%;
     width: 100%; /* Full width of the bar */
-    background-color: black; /* Background color for empty area */
+    background-color: transparent; /* Background color for empty area */
     position: relative;
     margin: 0 auto; /* Ensure it's centered */
     padding: 0;
     gap: 3px;
+}
+
+.deck-block {
+    height: 100%; /* Full height of the bar */
+    width: 1%; /* Deck blocks take up 1% of the progress bar */
+    background-color: white; /* Color for filled deck blocks */
 }
 
 .hecto-block {
@@ -74,7 +77,7 @@ img.decanat-logo {
     position: relative; /* Allow positioning of the dividers inside each block */
 }
 
-/* New time digital clock */
+/* New time clock */
 #decimal-time {
     margin-top: 35px;
     margin-bottom: 30px;
@@ -111,14 +114,116 @@ img.decanat-logo {
     height: 50px; /* Decrease height */
     margin-left: auto; /* Center horizontally */
     margin-right: auto; /* Center horizontally */
-    background-color: black; /* Optional: Add a black background for contrast */
+    background-color: transparent; /* Optional: Add a black background for contrast */
 }
 
-/* Dividing line */
 #divider {
     width: 90%;
     height: 2px;
     background-color: white;
     margin: 20px auto;
     margin-bottom: 60px;
+}
+
+.month-selector-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    gap: 10px;
+}
+
+.month-box {
+    font-size: 1.5em;
+    color: black;
+    background-color: white;
+    border: 2px solid white;
+    padding: 20px 20px;
+    text-align: center;
+    min-width: 100px;
+}
+
+.month-nav-btn {
+    all: unset; /* Reset all default button styles */
+    color: white; /* Arrow color */
+    font-size: 24px; /* Adjust size of the arrows */
+    cursor: pointer; /* Add a pointer cursor for usability */
+    padding: 5px; /* Remove extra padding */
+    margin: 0; /* Remove margins */
+    display: inline-block; /* Keep the buttons inline */
+    line-height: 1; /* Ensure consistent alignment */
+    position: relative; /* Allow adjustment of position */
+    top: -1px; /* Move the arrow slightly upwards (adjust value as needed) */
+}
+
+.month-nav-btn:hover {
+    opacity: 0.25; 
+}
+
+.month-nav-btn:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+}
+
+.calendar-container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.weekday-row {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* 10 columns */
+    margin: 0 auto;
+    background-color: white;
+}
+
+.weekday-cell {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    padding: 15px 0;
+    color: black;
+    font-size: 0.8em;
+    position: relative;
+    text-align: center; /* Ensure text alignment is centered */
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* 10 columns */
+    grid-template-rows: repeat(4, 1fr); /* 4 rows */
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid white;
+}
+
+.calendar-cell {
+    border: 1px solid white;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    padding: 20px 10px;
+    color: white;
+    font-size: 0.8em;
+    position: relative;
+    text-align: center; /* Ensure text alignment is centered */
+}
+
+.calendar-cell.hidden {
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+.calendar-cell.current-day {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+.calendar-cell span {
+    position: absolute;
+    font-size: 0.9em;
+    font-weight: bold;
 }
