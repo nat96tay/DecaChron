@@ -66,15 +66,14 @@ img.decanat-logo {
 
 .deck-block {
     height: 100%; /* Full height of the bar */
-    width: 1%; /* Deck blocks take up 1% of the progress bar */
+    width: calc(1% - 3px); /* Adjust width to account for gap */
     background-color: white; /* Color for filled deck blocks */
 }
 
 .hecto-block {
     height: 100%; /* Full height of the bar */
-    width: 10%; /* Each hecto block takes up 10% of the progress bar */
+    width: calc(10% - 3px); /* Adjust width to account for gap */
     background-color: white; /* Default color for filled blocks */
-    position: relative; /* Allow positioning of the dividers inside each block */
 }
 
 /* New time clock */
@@ -156,8 +155,9 @@ img.decanat-logo {
     top: -1px; /* Move the arrow slightly upwards (adjust value as needed) */
 }
 
-.month-nav-btn:hover {
-    opacity: 0.25; 
+.month-nav-btn:active {
+    opacity: 0.25;
+    transition: opacity 0.1s; /* duration: 200ms, easing function: ease-in-out */
 }
 
 .month-nav-btn:disabled {
@@ -204,7 +204,7 @@ img.decanat-logo {
     display: flex; /* Use flexbox for alignment */
     align-items: center; /* Center content vertically */
     justify-content: center; /* Center content horizontally */
-    padding: 20px 10px;
+    padding: 20px 0;
     color: white;
     font-size: 0.8em;
     position: relative;

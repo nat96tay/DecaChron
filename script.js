@@ -222,11 +222,16 @@ function generateCalendarGrid() {
 
     // Add empty cells for remaining days to complete the grid
     let totalCellsInGrid = 40; // 10 columns x 4 rows
-    if (firstWeekday > 3) {
+
+    if (daysInMonth === 36 && firstWeekday > 4) { // if first weekday is more than 4th day of week, add extra row
         totalCellsInGrid = 50;
-    } 
-    const currentCellsInGrid = firstWeekday + daysInMonth;
-    const remainingCells = totalCellsInGrid - currentCellsInGrid;
+        }
+    else if (daysInMonth === 37 && firstWeekday > 3) { // if first weekday is more than 3rd day of week, add extra row
+        totalCellsInGrid = 50;
+        }
+
+const currentCellsInGrid = firstWeekday + daysInMonth;
+const remainingCells = totalCellsInGrid - currentCellsInGrid;
 
     for (let i = 0; i < remainingCells; i++) {
         const emptyCell = document.createElement("div");
