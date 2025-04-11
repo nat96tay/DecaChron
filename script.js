@@ -11,7 +11,7 @@ const nextMonthButton = document.getElementById('next-month');
 
 // Constants
 const REAL_DAY_IN_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-const yearStartDay = 0; // Fixed start on Monoday
+const firstYearStartDay = 0; // Fixed start on Monoday
 
 // Update Decimal Time
 function updateDecimalTime() {
@@ -183,10 +183,48 @@ function calculateFirstWeekdayOfMonth(year, monthIndex) {
     }
 
     // Calculate weekday offset
-    return (yearStartDay + totalDays) % weekdays.length;
+    return (firstYearStartDay + totalDays) % weekdays.length;
 }
 
-// Adjusted generateCalendarGrid function
+function getDecaChronDate(gregorianDate) {
+    const baseDate = new Date(2000, 0, 1); // Jan 1, 2000
+    const msPerDay = 24 * 60 * 60 * 1000;
+    const daysSinceStart = Math.floor((gregorianDate - baseDate) / msPerDay);
+
+    // Now calculate the DecaChron year
+    let dayCounter = daysSinceStart;
+    let decaYear = 0;
+    while (true) {
+        const isLeap = decaYear % 4 === 0;
+        const daysInYear = isLeap ? 366 : 365;
+        if (dayCounter < daysInYear) break;
+        dayCounter -= daysInYear;
+        decaYear++;
+    }
+
+    // Now calculate the month and day within the year
+    const monthList = [
+        36, 37, 36, 37, 36,
+        37, 36, 37, 36, 37
+    ];
+    if (decaYear % 4 === 0) monthList[9]++; // Leap day added to last month
+
+    let megaMonth = 0;
+    while (dayCounter >= monthList[megaMonth]) {
+        dayCounter -= monthList[megaMonth];
+        megaMonth++;
+    }
+
+    const dayOfMonth = dayCounter + 1;
+
+    return {
+        year: decaYear,
+        monthIndex: megaMonth,
+        day: dayOfMonth
+    };
+}
+
+
 function generateCalendarGrid() {
     calendarGrid.innerHTML = "";
 
@@ -213,10 +251,18 @@ function generateCalendarGrid() {
     }
 
     // Add cells for each day in the current month
+    const today = getDecaChronDate(new Date());
     for (let day = 1; day <= daysInMonth; day++) {
         const cell = document.createElement("div");
         cell.className = "calendar-cell";
         cell.textContent = day;
+
+        // Check if today's date matches the current day in the loop
+        const currentDay = new Date(now.getFullYear(), now.getMonth(), day);
+        if (day === today.day && currentMonthIndex === today.monthIndex) {
+            cell.classList.add("today"); // Highlight the correct DecaChron day
+        }        
+
         calendarGrid.appendChild(cell);
     }
 
@@ -225,13 +271,12 @@ function generateCalendarGrid() {
 
     if (daysInMonth === 36 && firstWeekday > 4) { // if first weekday is more than 4th day of week, add extra row
         totalCellsInGrid = 50;
-        }
-    else if (daysInMonth === 37 && firstWeekday > 3) { // if first weekday is more than 3rd day of week, add extra row
+    } else if (daysInMonth === 37 && firstWeekday > 3) { // if first weekday is more than 3rd day of week, add extra row
         totalCellsInGrid = 50;
-        }
+    }
 
-const currentCellsInGrid = firstWeekday + daysInMonth;
-const remainingCells = totalCellsInGrid - currentCellsInGrid;
+    const currentCellsInGrid = firstWeekday + daysInMonth;
+    const remainingCells = totalCellsInGrid - currentCellsInGrid;
 
     for (let i = 0; i < remainingCells; i++) {
         const emptyCell = document.createElement("div");
